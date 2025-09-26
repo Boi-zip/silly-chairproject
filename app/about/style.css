@@ -1,0 +1,22 @@
+h1{
+    font-size: 28px;
+    margin-left: 10px;
+}
+.textabout{
+    size:19px;
+    margin-left: 16px;
+    overflow-wrap: break-word;
+}
+.img{
+    margin-left: 16px;
+    opacity: 0;
+    animation: fadeIn 13s ease-in-out forwards;
+}
+.img.visible{
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 45%; }
+}

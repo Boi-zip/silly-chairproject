@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #302f2f;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
+}
+.logop{
+  font-size: 10px;
+}
+.logo{
+  font-size:25px
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+header{
+  position: sticky;
+  z-index: 30;
+  top: 0;
+}
+footer{
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  right:0;
+}
+nav{
+  color: white;
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(48, 63, 63);
+}
+
+.nav__menu-bar div{
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.nav__menu-bar{
+    display: none;
+  }
+
+.nav__menu-list{
+  display: flex;
+  flex-direction: column;
+  top: 60px;
+  width: 288px;
+  row-gap: 24px;
+  right: -288px;
+  padding: 24px 16px;
+  transition: all 0.2s;
+  min-height: calc(100vh - 60px);
+}
+
+.nav__menu-list{
+    position: unset;
+    flex-direction: row;
+    min-height: fit-content;
+    width: fit-content;
+    column-gap: 24px;
+    align-items: fit-content;
+  }
+
+
+.nav__link{
+  font-size: 18px; 
+  position: relative;
+  transition: all 0.2s;
+}
+
+.nav__link::before{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 6px;
+    bottom: -16px;
+    left: 0;
+    transition: all 0.2s;
+  }
+
+.nav__link:hover{
+ font-weight: bold;
+}
+
+.nav__link:hover:before{
+   width: 100%;
+  }
+
+.center{
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sellingitems{
+  display:grid;
+  justify-content: center;
+}
+@media only screen and (min-height: 900px){
+  .sellingitems{
+  display: flex;
+  overflow:auto;
+}
+}
