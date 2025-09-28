@@ -9,3 +9,4 @@ Made as a project for school.
 
 ## All pictures are not mine.
 
+### The site of this project is [in here](https://informaticapo-ag.netlify.app/)
