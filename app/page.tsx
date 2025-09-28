@@ -47,6 +47,10 @@ export default function Home() {
         <div className="sellingitems">
           <SellingItem text="TABLEEE" price="10000"
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.eiWc-OtG5kwuPoStDFUOewHaHa%3Fpid%3DApi&f=1&ipt=086ff80bdebcbc928a00829ffcf8b09c7c6d372e0934956ffbef6d56f6d1e42a&ipo=images" additem={addToCart}/>
+        </div>
+        <div className="sellingitems">
+          <SellingItem text="Premium Gaming chair" price="320"
+        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.LhcbTgQTR9Y9-fLN8ChQGQHaHa%3Fpid%3DApi&f=1&ipt=da573b876c9117c6f0e096455ff70915ada87ac1d5dbe43ecfb3652a3a503239&ipo=images" additem={addToCart}/>
 
         <SellingItem text="Therapy chair" price="520"
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.GbLGDCNsuxQDZgpSqXOiFAHaHa%3Fpid%3DApi&f=1&ipt=b0db3c0276ec83b32ec608b3d3320f131a06c40ce3135c7e67cfd4e6e98d742c&ipo=images" additem={addToCart}/>
@@ -65,8 +69,8 @@ export default function Home() {
           <SellingItem text="Plastic chair" price="20"
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.h9yGeIos4OSErk-lVUlK3wHaHa%3Fpid%3DApi&f=1&ipt=ef2512b8fc8e47c65656b65cfe73155b96acc21867110fa1281a7c0ce1138791&ipo=images" additem={addToCart}/>
 
-        <SellingItem text="Questionable chair" price="115"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.W3ecfVn-KTpIz00yktm9sAHaHa%3Fpid%3DApi&f=1&ipt=46443e4ccc5505ff0f5d73693d3a02cd8078c19c4d33fd31ac17e7b9c2415799&ipo=images" additem={addToCart}/>
+        <SellingItem text="Premium chair" price="670"
+        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.DZ1QToRWcigi9Gx_TtHePQHaHa%3Fpid%3DApi&f=1&ipt=36d94b6bf1b1ea0fa9514e9a514114a214d91ba0bda45a49cc0b2bb9f4ce1411&ipo=images" additem={addToCart}/>
 
         </div>
 
