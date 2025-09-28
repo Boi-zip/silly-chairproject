@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className={`nav`}>
-        <Link href={"/"}>
+        <Link href={"/"} className="animate__animated animate__bounceInUp">
           
             <h1 className="logo nav_link">Chair company</h1>
             <p>We sell only chairs</p>

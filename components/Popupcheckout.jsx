@@ -2,8 +2,17 @@
 import Popup from 'reactjs-popup';
 import { useState } from 'react';
 import "./Css/Popup.css"
+import 'animate.css'
 
 export default function Popupcheckout(items) {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = (event) => {
+    setIsActive(true);
+    setTimeout(() => {
+      setIsActive(false);
+    }, 4000);
+  }
 
   const start = () => {
     var audio = document.getElementById('a1');
@@ -37,9 +46,8 @@ export default function Popupcheckout(items) {
               ))}
             </div>
             <div className="actions">
-              <button className="button" onClick={() => {
-                start();
-                
+              <button className={`button animate__animated ${isActive && 'animate__hinge'}`} onClick={() => {
+                start(); handleClick()
               }}>Buy all</button>
               <p className='price'>Total: €{pricetotal}</p>
             </div>
