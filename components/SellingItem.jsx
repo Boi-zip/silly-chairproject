@@ -7,11 +7,13 @@ const SellingItem = ({ text, price, img, additem}) => {
   const [isActive, setIsActive] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const handleClick = (event) => {
-    setIsActive(true);
-    setIsHovered(false);
-  setTimeout(() => {
-    setIsActive(false);
-  }, 1000);
+    if(isActive == false){
+      setIsActive(true);
+      setIsHovered(false);
+      setTimeout(() => {
+        setIsActive(false);
+      }, 1000);
+    }
 }
 
    const handleHover = (event) => {
@@ -36,7 +38,7 @@ const SellingItem = ({ text, price, img, additem}) => {
   <div className="contentBox">
     <h3>{text}</h3>
     <h2 className="price">€{price}</h2>
-    <button className={`buy animate__animated ${isActive && 'animate__flip'} ${isHovered && 'animate__pulse'}`} onClick={() => {additem({ text, price }); handleClick()}} onMouseEnter={() => handleHover()}>Add to cart</button>
+    <button className={`buy animate__animated ${isActive && 'animate__flip'} ${isHovered && 'animate__pulse'}`} onClick={() => {if(isActive == false) {additem({ text, price })}; handleClick()}} onMouseEnter={() => handleHover()}>Add to cart</button>
   </div>
 </div>
     )

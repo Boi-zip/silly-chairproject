@@ -7,13 +7,6 @@ import 'animate.css'
 export default function Popupcheckout(items) {
   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = (event) => {
-    setIsActive(true);
-    setTimeout(() => {
-      setIsActive(false);
-    }, 4000);
-  }
-
   const start = () => {
     var audio = document.getElementById('a1');
     audio.play()
@@ -32,7 +25,7 @@ export default function Popupcheckout(items) {
   return (
     <div>
        <audio id="a1" src="https://cdn.pixabay.com/download/audio/2022/12/17/audio_43e9af63f3.mp3?filename=cashier-quotka-chingquot-sound-effect-129698.mp3"></audio>
-      <Popup onOpen={() => updateprice()} trigger={<button className="trigger-button">Checkout</button>} position="right center" modal nested>
+      <Popup onOpen={() => updateprice()} onClose={() => setIsActive(false)} trigger={<button className="trigger-button">Checkout</button>} position="right center" modal nested>
         {close => (
           <div className="modal">
             <button className="close" onClick={close}>
@@ -47,7 +40,7 @@ export default function Popupcheckout(items) {
             </div>
             <div className="actions">
               <button className={`button animate__animated ${isActive && 'animate__hinge'}`} onClick={() => {
-                start(); handleClick()
+                start(); setIsActive(true)
               }}>Buy all</button>
               <p className='price'>Total: €{pricetotal}</p>
             </div>
