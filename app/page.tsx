@@ -5,12 +5,14 @@ import Popupcheckout from "@/components/Popupcheckout"
 import { useState } from 'react'
 
 export default function Home() {
+  const [isHovered, setIsHovered] = useState(false)
   const [itemscart, setItemscart] = useState<
     Array<{
         text: string,
         price: number
     }>
 >([]);
+  
   const addToCart = (item: { text: string; price: number }) => {
     let price = item.price
     let text = item.text
@@ -23,7 +25,7 @@ export default function Home() {
   return (
     <div>
       <header>
-        <Navbar/>
+       <Navbar/>
         </header>
 
         <main>
@@ -78,6 +80,7 @@ export default function Home() {
         <footer>
           <Popupcheckout items={itemscart}/>
         </footer>
+        <p id="copyrightxt">©️ Aleksandr Ganzha</p>
     </div>
   );
 }

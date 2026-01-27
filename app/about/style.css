@@ -11,9 +11,20 @@ h1{
     margin-left: 16px;
     opacity: 0;
     animation: fadeIn 13s ease-in-out forwards;
+    text-align: center;
+    display:inline;
+}
+.img-about{
+    margin-left: 16px;
+    text-align: center;
+    display:inline;
 }
 .img.visible{
     opacity: 1;
+}
+main{
+    text-align: center;
+    align-items: center;
 }
 
 @keyframes fadeIn {
