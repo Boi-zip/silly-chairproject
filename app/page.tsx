@@ -1,86 +1,81 @@
 "use client"
-import Navbar from "@/components/Navbar"
-import SellingItem from "@/components/SellingItem"
-import Popupcheckout from "@/components/Popupcheckout"
-import { useState } from 'react'
+import Navbar from "@/components/Navbar";
+import "animate.css"
+import AnimatedItem from "@/components/AnimatedItem"
+import Link from "next/link";
 
-export default function Home() {
-  const [isHovered, setIsHovered] = useState(false)
-  const [itemscart, setItemscart] = useState<
-    Array<{
-        text: string,
-        price: number
-    }>
->([]);
-  
-  const addToCart = (item: { text: string; price: number }) => {
-    let price = item.price
-    let text = item.text
-    setItemscart((item) => [
-          ...item,
-          { text: text, price: price }
-        ]);
-  };  
-  
-  return (
-    <div>
-      <header>
-       <Navbar/>
-        </header>
+export default function Home(){
 
-        <main>
-        <div className="sellingitems">
-          <SellingItem text="Fancy office chair" price="340"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.USiAakfD7Sa6dc9GPxKTbQHaHa%3Fpid%3DApi&f=1&ipt=7b1bdb1ffb202c6e22d7d9b4fbbd45320e4aef5a943484a135752ef446a753b6&ipo=images" additem={addToCart}/>
+    return(
+        <>
+        <Navbar/>
+        <div className="min-h-screen flex flex-col items-center justify-center text-center -mt-30">
+  <p className="max-w-4xl font-black text-4xl animate__animated animate__zoomInLeft">
+    Best site to get your
+    <em className="mx-3 font-inherit">perfectly priced</em>
+    chairs
+  </p>
 
-        
-        <SellingItem text="Couchy chair" price="160"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP._ggTfLTKg0AMhHW2xufh-AHaHa%3Fpid%3DApi&f=1&ipt=649071f0a16fdaaf1408b3b1ad8b92719431e6e67cb7bde6288b92faf9378277&ipo=images" additem={addToCart}/>
-        </div>
+  <p className="max-w-4xl font-black text-xl mt-4 animate__animated animate__zoomInLeft animate__delay-1s">
+    and your
+    <em className="mx-3 font-inherit">perfectly priced</em>
+    singular table
+  </p>
+  <p className="mt-5 text-sm">scroll down pls</p>
+</div>
+<p className="text-center md:mt-5 text-2xl">Just look at our reviews </p>
+<div className="md:grid md:grid-flow-col md:grid-cols-3 items-center justify-center text-center gap-1 place-items-center md:mt-4">
+<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs">
+  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Jeffy E</h5>
+    <p className="text-xl italic">I really liked the skeleton chair</p>
+</AnimatedItem>
+<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
+  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">ChatGPT</h5>
+    <p className="text-xs">yes I actually asked ChatGPT to write me a review</p>
+    <p className="text-lg italic">This chair site boldly asks important questions, like why a table costs $10,000, while casually selling skeleton chairs and emotional support seating dreams online paradise.
+</p>
+</AnimatedItem>
+<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
+  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Me (The one that made the site)</h5>
+    <p className="text-xl italic">Kinda cool, the table is decently priced</p>
+</AnimatedItem>
+</div>
 
-        <div className="sellingitems">
-          <SellingItem text="Relaxing chair" price="75"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.oerxSqcLKTxOXHFYbGrbWwHaHZ%3Fpid%3DApi&f=1&ipt=c44b6ad9aed58de76fd976ccb0a663fce62d7757e5551f8f20c2c8e8e7dca2c9&ipo=images" additem={addToCart}/>
+<p className="text-center text-xl mt-10">Now you know, go have a look:</p>
+<AnimatedItem animation="animate__shakeY" className="mt-6 mb-7 flex justify-self-center ">
+<Link href={"/chairs"}>
+<button
+  className="relative group border-none bg-transparent p-0 outline-none cursor-pointer font-mono font-light uppercase text-base"
+>
+  <span
+    className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-25 rounded-lg transform translate-y-0.5 transition duration-[600ms] ease-[cubic-bezier(0.3,0.7,0.4,1)] group-hover:translate-y-1 group-hover:duration-[250ms] group-active:translate-y-px"
+  ></span>
 
-        <SellingItem text="Wood chair" price="30"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.SaNLPoCNzNDhtYwdC_QGYwHaHa%3Fpid%3DApi&f=1&ipt=5b11454585eeeb695553bbaacd2b0b9cc946fc326edce14c70b553948b69d8ec&ipo=images" additem={addToCart}/>
+  <span
+    className="absolute top-0 left-0 w-full h-full rounded-lg bg-gradient-to-l from-[hsl(217,33%,16%)] via-[hsl(217,33%,32%)] to-[hsl(217,33%,16%)]"
+  ></span>
 
-        </div>
-        <div className="sellingitems">
-          <SellingItem text="TABLEEE" price="10000"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.eiWc-OtG5kwuPoStDFUOewHaHa%3Fpid%3DApi&f=1&ipt=086ff80bdebcbc928a00829ffcf8b09c7c6d372e0934956ffbef6d56f6d1e42a&ipo=images" additem={addToCart}/>
-        </div>
-        <div className="sellingitems">
-          <SellingItem text="Premium Gaming chair" price="320"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.LhcbTgQTR9Y9-fLN8ChQGQHaHa%3Fpid%3DApi&f=1&ipt=da573b876c9117c6f0e096455ff70915ada87ac1d5dbe43ecfb3652a3a503239&ipo=images" additem={addToCart}/>
+  <div
+    className="relative flex items-center justify-between py-3 px-6 text-lg text-white rounded-lg transform -translate-y-1 bg-gradient-to-r from-[#f27121] via-[#e94057] to-[#8a2387] gap-3 transition duration-[600ms] ease-[cubic-bezier(0.3,0.7,0.4,1)] group-hover:-translate-y-1.5 group-hover:duration-[250ms] group-active:-translate-y-0.5 brightness-100 group-hover:brightness-110"
+  >
+    <span className="select-none">Go to the Chair shop</span>
 
-        <SellingItem text="Therapy chair" price="520"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.GbLGDCNsuxQDZgpSqXOiFAHaHa%3Fpid%3DApi&f=1&ipt=b0db3c0276ec83b32ec608b3d3320f131a06c40ce3135c7e67cfd4e6e98d742c&ipo=images" additem={addToCart}/>
-
-        </div>
-
-        <div className="sellingitems">
-          <SellingItem text="Gaming chair" price="240"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.8YHEtJklytUAi-Ts7hVxwgHaHa%3Fpid%3DApi&f=1&ipt=ce0893ca4dcd09fe1286953c4c82e73c43de64ab181e9f0034f5cf1844b88097&ipo=images" additem={addToCart}/>
-
-        <SellingItem text="Skeleton chair" price="420"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.Z5yLLW-ritzZNymPKZ1PbgHaHP%3Fpid%3DApi&f=1&ipt=97a275a90d90e16cc68d56494752cbd09bf0612249a5a0c17cf879ca9905a813&ipo=images" additem={addToCart}/>
-
-        </div>
-         <div className="sellingitems">
-          <SellingItem text="Plastic chair" price="20"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.h9yGeIos4OSErk-lVUlK3wHaHa%3Fpid%3DApi&f=1&ipt=ef2512b8fc8e47c65656b65cfe73155b96acc21867110fa1281a7c0ce1138791&ipo=images" additem={addToCart}/>
-
-        <SellingItem text="Premium chair" price="670"
-        img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%2Fid%2FOIP.DZ1QToRWcigi9Gx_TtHePQHaHa%3Fpid%3DApi&f=1&ipt=36d94b6bf1b1ea0fa9514e9a514114a214d91ba0bda45a49cc0b2bb9f4ce1411&ipo=images" additem={addToCart}/>
-
-        </div>
-
-        </main>
-        <footer>
-          <Popupcheckout items={itemscart}/>
-        </footer>
-        <p id="copyrightxt">©️ Aleksandr Ganzha</p>
-    </div>
-  );
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="w-5 h-5 ml-2 -mr-1 transition duration-250 group-hover:translate-x-1"
+    >
+      <path
+        clipRule="evenodd"
+        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </div>
+</button>
+</Link>
+</AnimatedItem>
+<p id="copyrightxt" className="mb-5">©️ Aleksandr Ganzha</p>
+        </>
+    )
 }

@@ -6,6 +6,7 @@ import NavItem from "./NavItem";
 
 const MENU_LIST = [
   { text: "Home", href: "/" },
+    { text: "Chairs", href: "/chairs" },
   { text: "About Us", href: "/about" },
 ];
 const Navbar = () => {
