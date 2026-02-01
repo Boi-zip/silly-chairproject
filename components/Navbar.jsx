@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
-import Image from "next/image";
-import React, { useState } from "react";
+import { useState } from "react";
 import NavItem from "./NavItem";
 
 const MENU_LIST = [

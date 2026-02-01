@@ -2,17 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
-  // We keep Turbopack enabled, but configure the underlying SWC compiler
+  distDir: 'out', // Optional: simpler output folder
+  images: { unoptimized: true },
+  compress: true, // Enables compression
+  productionBrowserSourceMaps: false, // Ensure source maps don't leak into production
   compiler: {
-    // This tells SWC to remove modern features
-    styledComponents: true, // If you use them, otherwise remove
+    removeConsole: true, // Strips console.logs to save bytes
   },
-  // Customizing the SWC transformation
   experimental: {
-    swcPlugins: [], 
+    optimizePackageImports: ['react-icons', 'bootstrap'], // Critical for tree-shaking
   },
 };
 
