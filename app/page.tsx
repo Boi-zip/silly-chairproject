@@ -29,17 +29,17 @@ export default function Home(){
 <p className="text-center md:mt-5 text-2xl">Just look at our reviews </p>
 <div className="md:grid md:grid-flow-col md:grid-cols-3 items-center justify-center text-center gap-1 place-items-center md:mt-4">
 <AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Jeffy E</h5>
+  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Jeffy E</p>
     <p className="text-xl italic">I really liked the skeleton chair</p>
 </AnimatedItem>
 <AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">ChatGPT</h5>
+  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">ChatGPT</p>
     <p className="text-xs">yes I actually asked ChatGPT to write me a review</p>
     <p className="text-lg italic">This chair site boldly asks important questions, like why a table costs $10,000, while casually selling skeleton chairs and emotional support seating dreams online paradise.
 </p>
 </AnimatedItem>
 <AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <h5 className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Me (The one that made the site)</h5>
+  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Me (The one that made the site)</p>
     <p className="text-xl italic">Kinda cool, the table is decently priced</p>
 </AnimatedItem>
 </div>
@@ -47,8 +47,7 @@ export default function Home(){
 <p className="text-center text-xl mt-10">Now you know, go have a look:</p>
 {/*Also got this thing from a site, a button template but change it up a bit to center it on the screen and to have some margings(and the text) */}
 <AnimatedItem animation="animate__shakeY" className="mt-6 mb-7 flex justify-self-center ">
-<Link href={"/chairs"}>
-<button
+<Link href={"/chairs"}
   className="relative group border-none bg-transparent p-0 outline-none cursor-pointer font-mono font-light uppercase text-base"
 >
   <span
@@ -59,7 +58,7 @@ export default function Home(){
     className="absolute top-0 left-0 w-full h-full rounded-lg bg-gradient-to-l from-[hsl(217,33%,16%)] via-[hsl(217,33%,32%)] to-[hsl(217,33%,16%)]"
   ></span>
 
-  <div
+  <span
     className="relative flex items-center justify-between py-3 px-6 text-lg text-white rounded-lg transform -translate-y-1 bg-gradient-to-r from-[#f27121] via-[#e94057] to-[#8a2387] gap-3 transition duration-[600ms] ease-[cubic-bezier(0.3,0.7,0.4,1)] group-hover:-translate-y-1.5 group-hover:duration-[250ms] group-active:-translate-y-0.5 brightness-100 group-hover:brightness-110"
   >
     <span className="select-none">Go to the Chair shop</span>
@@ -75,8 +74,7 @@ export default function Home(){
         fillRule="evenodd"
       ></path>
     </svg>
-  </div>
-</button>
+  </span>
 </Link>
 </AnimatedItem>
 <p id="copyrightxt" className="mb-5">©️ Aleksandr Ganzha</p>

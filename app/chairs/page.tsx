@@ -24,9 +24,7 @@ export default function chair() {
   
   return (
     <div>
-      <header>
        <Navbar/>
-        </header>
 
         <main>
         <div className="sellingitems">

@@ -36,8 +36,8 @@ const SellingItem = ({ text, price, img, additem}) => {
   </div>
 
   <div className="contentBox">
-    <h3>{text}</h3>
-    <h2 className="price">€{price}</h2>
+    <p className="font-semibold font-stretch-expanded text-2xl">{text}</p>
+    <p className="price">€{price}</p>
     <button className={`buy animate__animated ${isActive && 'animate__flip'} ${isHovered && 'animate__pulse'}`} onClick={() => {if(isActive == false) {additem({ text, price })}; handleClick()}} onMouseEnter={() => handleHover()}>Add to cart</button>
   </div>
 </div>
