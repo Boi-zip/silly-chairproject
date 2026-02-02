@@ -20,7 +20,7 @@ export default function Popupcheckout(items) {
   }
   }
   
-  
+  {/*By using reactjs-popup this works */}
   
   return (
     <div>

@@ -1,10 +1,11 @@
+//ChatGPT generated this component since I had problems with animations and playing it when it's in view
 import { useInView } from "react-intersection-observer";
 import clsx from "clsx";
 
 export default function AnimatedItem({
   children,
   className,
-  animation
+  animation //changed this to something useful
 }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
@@ -14,7 +15,7 @@ export default function AnimatedItem({
       className={clsx(
         "animate__animated",
         className,
-        inView ? `${animation}` : `opacity-0`)}
+        inView ? `${animation}` : `opacity-0`)} //same with this
     >
       {children}
     </div>
