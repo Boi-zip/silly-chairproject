@@ -83,7 +83,26 @@ nav{
     display: none;
   }
 
+  .nav__menu-list{
+  display: grid;
+  flex-direction: column;
+  right: -288px;
+  padding: 5px 5px;
+  transition: all 0.2s;
+  min-height: calc(100vh - 80px);
+}
+
 .nav__menu-list{
+    position: unset;
+    flex-direction: row;
+    min-height: fit-content;
+    width: fit-content;
+    row-gap: 3px;
+    align-items: fit-content;
+  }
+
+  @media only screen and (min-width: 600px){
+    .nav__menu-list{
   display: flex;
   flex-direction: column;
   top: 60px;
@@ -94,8 +113,7 @@ nav{
   transition: all 0.2s;
   min-height: calc(100vh - 60px);
 }
-
-.nav__menu-list{
+  .nav__menu-list{
     position: unset;
     flex-direction: row;
     min-height: fit-content;
@@ -103,7 +121,7 @@ nav{
     column-gap: 24px;
     align-items: fit-content;
   }
-
+}
 
 .nav__link{
   font-size: 18px; 
