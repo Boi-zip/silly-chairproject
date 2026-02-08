@@ -1,10 +1,10 @@
 
-# Silly chair webshop template
+# Silly chair webshop project
 
 This silly site has been made using Next.js.
 Made as a project for school.
 
-
+### I used supabase for the easiest review implementation, without making a server and still having the benefits of a static page.
 
 
 ## All pictures are not mine.
