@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   compress: true, // Enables compression
   productionBrowserSourceMaps: false, // Ensure source maps don't leak into production
   compiler: {
-    removeConsole: true, // Strips console.logs to save bytes
+    removeConsole: process.env.NODE_ENV === "production",
   },
   experimental: {
     optimizePackageImports: ['react-icons', 'bootstrap'], // Critical for tree-shaking

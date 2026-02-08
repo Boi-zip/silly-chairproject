@@ -3,9 +3,19 @@ import Navbar from "@/components/Navbar";
 import "animate.css"
 import AnimatedItem from "@/components/AnimatedItem"
 import Link from "next/link";
-
+import { supabase } from './utils/supabase'
+import { useEffect, useState } from "react";
 export default function Home(){
-
+  const [reviews, setReviews] = useState<any[]>([])
+  async function getReviews() {
+      const { data } = await supabase.from('reviews').select()
+      if (data) {setReviews(data)}
+    }
+  
+    useEffect(() => {
+      getReviews()
+    }, [])
+    //stuff to get ACTUAL reviews made by users, i know overkill for this silly project
     return(
         <>
         <Navbar/>
@@ -26,26 +36,19 @@ export default function Home(){
   <p className="mt-5 text-sm">scroll down pls</p>
 </div>
 {/*Got from a site, the template of quote boxes(review boxes in this case), did change it a bit though to center and to work good on mobile and on PC*/}
-<p className="text-center md:mt-5 text-2xl">Just look at our reviews </p>
+<p className="text-center md:mt-7 text-2xl">Just look at our <Link href="/reviews" className="border border-dashed pr-1 pl-1">reviews</Link> </p>
 <div className="md:grid md:grid-flow-col md:grid-cols-3 items-center justify-center text-center gap-1 place-items-center md:mt-4">
-<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Jeffy E</p>
-    <p className="text-xl italic">I really liked the skeleton chair</p>
-</AnimatedItem>
-<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">ChatGPT</p>
-    <p className="text-xs">yes I actually asked ChatGPT to write me a review</p>
-    <p className="text-lg italic">This chair site boldly asks important questions, like why a table costs $10,000, while casually selling skeleton chairs and emotional support seating dreams online paradise.
-</p>
-</AnimatedItem>
-<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:max-w-lg p-6 border border-default rounded-base shadow-xs">
-  <p className="mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">Me (The one that made the site)</p>
-    <p className="text-xl italic">Kinda cool, the table is decently priced</p>
-</AnimatedItem>
+{reviews.slice(-3).reverse().map((item) => (<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs" key={item.email}>
+  <p className="text-center mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">{item.title}</p>
+              <p className="text-xl italic">{item.content}</p>
+              <p className="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">- {item.name}</p>
+</AnimatedItem>))}
 </div>
+{!reviews.length && <div className="text-center"><p className="text-4xl font-semibold tracking-tight text-heading leading-8 mb-4">We have no reviews at the moment! you can write a review here:</p> <Link href="/reviews"><p className="text-4xl font-semibold text-heading leading-8 underline decoration-double">Reviews</p></Link></div>}
 
 <p className="text-center text-xl mt-10">Now you know, go have a look:</p>
 {/*Also got this thing from a site, a button template but change it up a bit to center it on the screen and to have some margings(and the text) */}
+{/*https://uiverse.io/zymantas-katinas/little-puma-84 */}
 <AnimatedItem animation="animate__shakeY" className="mt-6 mb-7 flex justify-self-center ">
 <Link href={"/chairs"}
   className="relative group border-none bg-transparent p-0 outline-none cursor-pointer font-mono font-light uppercase text-base"
