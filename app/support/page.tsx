@@ -23,11 +23,11 @@ export default function Support(){
           :
            <><p className="text-4xl text-center mt-10 mb-10">Send a support ticket</p>
         <form action={() => setSended(true)} className="text-center">
-            <label htmlFor="email"><p className="text-3xl">E-mail</p></label><br/>
+            <p className="text-3xl">E-mail</p>
             <input type="email" required onChange={(e) => setEmail(e.target.value)} className="border p-[4px] mt-2 mb-2" id="email" name="E-mail" placeholder="john@example.com"/><br/>
-            <label htmlFor="topic"><p className="text-3xl">Topic</p></label>
+            <p className="text-3xl">Topic</p>
             <input type="text" required onChange={(e) => setTitle(e.target.value)} className="border p-[4px] mt-2 mb-2" id="Topic" name="Topic" placeholder="About the site"/>
-            <label htmlFor="message"><p className="text-3xl">Your message</p></label>
+            <p className="text-3xl">Your message</p>
             <textarea required onChange={(e) => setText(e.target.value)} className="border p-[4px] resize min-h-[100px] h-[200px] w-[340px] min-w-[250px] max-w-screen mt-2 mb-2" id="message" name="message" placeholder="This site is amazing!!!"/><br/>
                 <input type="submit" value="Send support ticket" className="cursor-pointer text-base border-dotted border-3 p-3 border-lime-900 rounded-2xl bg-green-700"/>
         </form></> }
