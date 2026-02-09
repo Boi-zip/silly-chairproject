@@ -33,7 +33,7 @@ export default function Support(){
         </form></> }
         
         
-        <p id="copyrightxt" className="min-w-full bg-[#323131]">©️ Aleksandr Ganzha</p>
+        <p id="copyrightxt" className="min-w-full">©️ Aleksandr Ganzha</p>
         </>
     )
 }
