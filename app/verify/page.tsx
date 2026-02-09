@@ -1,5 +1,6 @@
 "use client"
 //Note: this page has been fully made by Gemini, just copy pasted
+//but nothing fancy, here, really easy to understand
 import { useEffect, useState } from 'react'
 import { supabase } from '../utils/supabase'
 
