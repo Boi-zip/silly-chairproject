@@ -26,21 +26,20 @@ function Reviews() {
     if (!newReview) return;
     const { data } = await supabase.from('reviews').select().eq('email', email); //used for the email check
 
+    if (data?.length! > 0) {return alert("Email is in use!");} //the email check is from https://github.com/orgs/supabase/discussions/2419
+
     const { error } = await supabase
       .from('reviews')
       .insert([{ content: newReview, email: email, title:title, name: name}])
-
+    setTitle('')
+    setEmail('')
+    setNewReview('')
+    setName('')
     if (error) {
       console.error('Error pushing:', error)
-    } else if (data?.length! > 0) {return alert("Email is in use!");} //the email check is from https://github.com/orgs/supabase/discussions/2419
-     else {
-      setNewReview('')
-      setTitle('') // Clear inputs
-      setEmail('')
-      setName('')
+    } 
       setMakeReview(false)
       getReviews()     // Refresh the list
-    }
   }
 
   return (
