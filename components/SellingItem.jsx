@@ -27,7 +27,7 @@ const SellingItem = ({ text, price, img, additem}) => {
     }
 
   };
-
+  //Product card from https://codepen.io/sam_garcia2/pen/PozpPRy
     return(
 
             <div className="card">
