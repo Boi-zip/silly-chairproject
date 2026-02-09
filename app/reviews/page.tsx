@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabase'
 import Navbar from '@/components/Navbar'
 //The base of the site is from supabase, modified by me so it works with reviews and such(remade into a review page, was a example todo list)
+//some things are AI generated, mainly to verify your E-mail to post a review
 function Reviews() {
   const [reviews, setReviews] = useState<any[]>([])
   const [newReview, setNewReview] = useState('')
@@ -10,10 +11,11 @@ function Reviews() {
   const [title, setTitle] = useState('')
   const [name, setName] = useState('')
   const [makeReview, setMakeReview] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   // 1. FETCH LOGIC (Read)
   async function getReviews() {
-    const { data } = await supabase.from('reviews').select()
+    const { data } = await supabase.from('reviews').select().eq('is_verified', true)
     if (data) setReviews(data)
   }
 
@@ -24,13 +26,19 @@ function Reviews() {
   // 2. PUSH LOGIC (Write)
   async function pushReview() {
     if (!newReview) return;
-    const { data } = await supabase.from('reviews').select().eq('email', email); //used for the email check
+    const { data } = await supabase
+      .from('reviews')
+      .select()
+      .eq('email', email)
+      .eq('is_verified', true);
 
-    if (data?.length! > 0) {return alert("Email is in use!");} //the email check is from https://github.com/orgs/supabase/discussions/2419
+    if (data && data.length > 0) {
+      return alert("This email has already posted a verified review!");
+    } //the email check is from https://github.com/orgs/supabase/discussions/2419
 
     const { error } = await supabase
       .from('reviews')
-      .insert([{ content: newReview, email: email, title:title, name: name}])
+      .insert([{ content: newReview, email: email, title:title, name: name, is_verified: false}])
     setTitle('')
     setEmail('')
     setNewReview('')
@@ -39,14 +47,22 @@ function Reviews() {
       console.error('Error pushing:', error)
     } 
       setMakeReview(false)
+      setIsSubmitted(true)
       getReviews()     // Refresh the list
   }
 
   return (
     <div>
       <Navbar/>
+      {isSubmitted && (
+        <div className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4 text-center">
+          <strong className="font-bold">Check your inbox (possibly your spam inbox)! </strong>
+          <span className="block sm:inline">We sent a verification link to your email. Your review will appear once confirmed.</span>
+        </div>
+      )}
       {makeReview ? <form className="mb-2 text-center" action={pushReview}>
-        <label htmlFor="email"><p className="text-3xl m-1">E-mail</p></label>
+        <label htmlFor="email"><p className="text-3xl">E-mail</p></label>
+        <p className='text-lg m-1'>Note! this e-mail will be used to verify your review before posting to prevent spam</p>
         <input 
         type='email'
           className="border p-2 text-current"
@@ -83,6 +99,7 @@ function Reviews() {
         />
         <br/>
         <input type='submit' className="bg-blue-500 text-white p-2 ml-2" />
+        <p className='mt-2'>By posting a review you accept that your review may get removed or may gets changed if it contains suspicious, racist or any NSWF content</p>
       </form> : 
       <div> 
       <button onClick={() => setMakeReview(true)}

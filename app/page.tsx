@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function Home(){
   const [reviews, setReviews] = useState<any[]>([])
   async function getReviews() {
-      const { data } = await supabase.from('reviews').select()
+      const { data } = await supabase.from('reviews').select().eq('is_verified', true)
       if (data) {setReviews(data)}
     }
   
