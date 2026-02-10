@@ -3,7 +3,7 @@ import "./sellitem.css"
 import "animate.css"
 import Image from 'next/image'
 import { useState } from "react"
-const SellingItem = ({ text, price, img, additem}) => {
+const SellingItem = ({ text, price, img, additem, desc}) => {
   const [isActive, setIsActive] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const handleClick = (event) => {
@@ -38,6 +38,7 @@ const SellingItem = ({ text, price, img, additem}) => {
   <div className="contentBox">
     <p className="font-semibold font-stretch-expanded text-2xl">{text}</p>
     <p className="price">€{price}</p>
+    <p className="desc">{desc}</p>
     <button className={`buy animate__animated ${isActive && 'animate__flip'} ${isHovered && 'animate__pulse'}`} onClick={() => {if(isActive == false) {additem({ text, price })}; handleClick()}} onMouseEnter={() => handleHover()}>Add to cart</button>
   </div>
 </div>
