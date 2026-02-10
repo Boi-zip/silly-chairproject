@@ -33,7 +33,7 @@ export default function Home(){
     <em className="mx-3 font-inherit">perfectly priced</em>
     singular table
   </p>
-  <p className="mt-5 text-sm">scroll down pls</p>
+  <p className="mt-5 text-lg border border-dashed p-1" onClick={() => window.scroll({top: document.body.offsetHeight - 810,left: 0, behavior: 'smooth',})}>scroll down or click</p> {/*scroll down script from https://stackoverflow.com/questions/63031108/how-to-scroll-at-bottom-in-react-on-button */}
 </div>
 {/*Got from a site, the template of quote boxes(review boxes in this case), did change it a bit though to center and to work good on mobile and on PC*/}
 <p className="text-center md:mt-7 text-2xl">Just look at our <Link href="/reviews" className="border border-dashed pr-1 pl-1">reviews</Link> </p>
