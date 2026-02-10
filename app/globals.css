@@ -30,7 +30,7 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 .logop{
-  font-size: 10px;
+  font-size: 16px;
 }
 .logo{
   font-size:25px
@@ -90,6 +90,7 @@ nav{
   padding: 5px 5px;
   transition: all 0.2s;
   min-height: calc(100vh - 80px);
+  font-size:24px;
 }
 
 .nav__menu-list{
@@ -101,7 +102,7 @@ nav{
     align-items: fit-content;
   }
 
-  @media only screen and (min-width: 600px){
+  @media only screen and (min-width: 680px){
     .nav__menu-list{
   display: flex;
   flex-direction: column;
@@ -160,8 +161,9 @@ nav{
 }
 @media only screen and (min-width: 600px){
   .sellingitems{
-  display: flex;
-  overflow:auto;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(0px, 400px) );
+  justify-items: center;
 }
 }
 
