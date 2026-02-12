@@ -1,11 +1,11 @@
 .card {
   position: relative;
-  width: 320px;
+  width: 350px;
   height: 525px;
   background: #191919;
   border-radius: 20px;
   overflow: hidden;
-  margin-left: 25px;
+  margin-left: auto;
   margin-top: 10px;
   z-index: 1;
 }
@@ -90,7 +90,7 @@
   top: 100px;
   opacity: 0;
   padding: 10px 30px;
-  margin-top: 20px;
+  margin-top: 3px;
   color: #000000;
   text-decoration: none;
   background: #ffce00;
@@ -104,7 +104,7 @@
   opacity: 0;
   color: white;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16.17994px;
   transition: 0.5s;
 }
 

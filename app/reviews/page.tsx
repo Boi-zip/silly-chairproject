@@ -15,7 +15,7 @@ function Reviews() {
 
   // 1. FETCH LOGIC (Read)
   async function getReviews() {
-    const { data } = await supabase.from('reviews').select().eq('is_verified', true)
+    const { data } = await supabase.from('reviews').select().eq('is_verified', true).order('created_at', { ascending: false })
     if (data) setReviews(data)
   }
 
@@ -48,6 +48,7 @@ function Reviews() {
     } 
       setMakeReview(false)
       setIsSubmitted(true)
+      window.scroll({top: 0,left: 0, behavior: 'smooth',})
       getReviews()     // Refresh the list
   }
 
@@ -58,6 +59,7 @@ function Reviews() {
         <div className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4 text-center">
           <strong className="font-bold">Check your inbox (possibly your spam inbox)! </strong>
           <span className="block sm:inline">We sent a verification link to your email. Your review will appear once confirmed.</span>
+          <span className="block">After 2 hours, if your e-mail isn't verified, your review is automatically deleted(you will have to make a new one).</span>
         </div>
       )}
       {makeReview ? <form className="mb-2 text-center" action={pushReview}>
@@ -68,6 +70,7 @@ function Reviews() {
           className="border p-2 text-current"
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
+          pattern="[a-zA-Z0-9._%\+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
           placeholder="john@example.com"
           required
         />
@@ -108,9 +111,9 @@ function Reviews() {
     <span className="select-none">{reviews.length > 0 ? "Write a review" : "Be the first to write a review!"}</span>
 </button>
 {/* List area to show current data */}
-      <ul className='flex flex-col-reverse items-center'>
+      <ul className='flex flex-col items-center'>
         {reviews.map((item) => (
-          <div className="mt-3 bg-neutral-primary-soft block md:max-w-lg pt-6 pb-6 pl-2 pr-2 border border-default rounded-base shadow-xs w-full" key={item.email}>
+          <div className="mt-3 bg-neutral-primary-soft block md:max-w-lg pt-6 pb-6 pl-2 pr-2 border border-default rounded-base shadow-xs w-full" key={item.id}>
             <p className="text-center mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">{item.title}</p>
               <p className="text-xl italic">{item.content}</p>
               <p className="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">- {item.name}</p>
