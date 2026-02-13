@@ -9,7 +9,7 @@ import SellingItemH from "@/components/SellingItem_home";
 export default function Home(){
   const [reviews, setReviews] = useState<any[]>([])
   async function getReviews() {
-      const { data } = await supabase.from('reviews').select().eq('is_verified', true)
+      const { data } = await supabase.from('public_reviews').select().order('created_at', { ascending: false })
       if (data) {setReviews(data)}
     }
   
@@ -46,7 +46,7 @@ export default function Home(){
 {/*Got from a site, the template of quote boxes(review boxes in this case), did change it a bit though to center and to work good on mobile and on PC*/}
 <p className="text-center md:mt-7 text-2xl">Just look at our <Link href="/reviews" className="border border-dashed pr-1 pl-1">reviews</Link> </p>
 <div className="md:grid md:grid-flow-col md:grid-cols-3 items-center justify-center text-center gap-1 place-items-center md:mt-4">
-{reviews.slice(-3).reverse().map((item) => (<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs" key={item.email}>
+{reviews.slice(0,3).reverse().map((item) => (<AnimatedItem animation="animate__tada" className="mt-2 bg-neutral-primary-soft block md:min-w-63 md:max-w-lg p-6 border border-default rounded-base shadow-xs" key={item.id}>
   <p className="text-center mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">{item.title}</p>
               <p className="text-xl italic">{item.content}</p>
               <p className="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">- {item.name}</p>
