@@ -32,6 +32,7 @@ export default function Popupcheckout(items) {
             <div className="content">
               
   {(() => { //Used AI Gemini here, explained to understand the code better
+  //Heb de 2x 3x sorteren toegevoegd(vroeger had je dubbele text van hetzelfde item) van feedback van Rens
     // 1. Group the items and count quantities
     const groupedItems = items.items.reduce((acc, item) => { //do a 'run', check items
       if (acc[item.text]) { //if atleast 1 exists
