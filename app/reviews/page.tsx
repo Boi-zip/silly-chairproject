@@ -15,7 +15,7 @@ function Reviews() {
 
   // 1. FETCH LOGIC (Read)
   async function getReviews() {
-    const { data } = await supabase.from('reviews').select().eq('is_verified', true).order('created_at', { ascending: false })
+    const { data } = await supabase.from('public_reviews').select().order('created_at', { ascending: false })
     if (data) setReviews(data)
   }
 
