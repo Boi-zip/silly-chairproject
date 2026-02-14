@@ -19,9 +19,9 @@ const Navbar = () => {
       <nav className={`nav`}>
         <Link href={"/"} className="animate__animated animate__bounceInUp">
           
-            <h1 className="logo nav_link">Chair company 🪑️</h1>
-            <p>We sell only chairs</p>
-            <p className="logop">with 1 overpriced table</p>
+            <h1 className="logo nav_link font-semibold">Chair company</h1>
+            <p className="font-semibold">We sell only chairs</p>
+            <p className="logop font-semibold">with 1 overpriced table</p> {/*Made the text bigger, by request from Jacob*/}
         </Link>
         <div
           onClick={() => setNavActive(!navActive)}

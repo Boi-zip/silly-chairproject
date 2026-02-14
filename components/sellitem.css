@@ -31,9 +31,9 @@
 
 .card::after {
   content: "CHAIR";
-  position: absolute;
+  position: absolute; 
   bottom: 0;
-  left: 0;
+  right: 23; /*Made the CHAIR text centered, by request from Jacob*/
   font-weight: 600;
   font-size: 6em;
   color: rgba(0, 0, 0, 0.1);
@@ -86,11 +86,11 @@
 }
 
 .card .contentBox .buy {
-  position: relative;
-  top: 100px;
+  position: absolute; /*Made the add to cart button go in the same position everytime, by request from Jacob*/
+  top:100px;
   opacity: 0;
   padding: 10px 30px;
-  margin-top: 3px;
+  margin-top: 150px;
   color: #000000;
   text-decoration: none;
   background: #ffce00;

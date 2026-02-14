@@ -35,7 +35,7 @@ export default function Home(){
     singular table
   </p>
   <p className="mt-5 text-lg border border-dashed p-1" onClick={() => window.scroll({top: document.body.offsetHeight - 810,left: 0, behavior: 'smooth',})}>scroll down or click</p> {/*scroll down script from https://stackoverflow.com/questions/63031108/how-to-scroll-at-bottom-in-react-on-button */}
-  <div className="grid-cols-2 md:grid"><SellingItemH className="md:mr-7" text="Fancy office chair" price="340" desc="An comfortable, adjustable and fancy chair to keep you sitting and working comfortably"
+  <div className="grid-cols-2 md:grid"><SellingItemH className="md:mr-7" text="Fancy office chair" price="340" desc="An comfortable and adjustable chair to keep you sitting and working comfortably"
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.USiAakfD7Sa6dc9GPxKTbQHaHa%3Fpid%3DApi&f=1&ipt=7b1bdb1ffb202c6e22d7d9b4fbbd45320e4aef5a943484a135752ef446a753b6&ipo=images"/>
         <SellingItemH text="Premium Gaming chair" price="320" desc="Gaming chair designed for gaming marathons"
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.LhcbTgQTR9Y9-fLN8ChQGQHaHa%3Fpid%3DApi&f=1&ipt=da573b876c9117c6f0e096455ff70915ada87ac1d5dbe43ecfb3652a3a503239&ipo=images"/>

@@ -3,7 +3,7 @@ const NavItem = ({ text, href, active }) => {
   return (
     <Link href={href}>
       <p
-        className={`nav__item ${
+        className={`font-semibold nav__item ${ /*Made the text thicker, by request from Jacob*/
           active ? "active" : ""
         }`}
       >

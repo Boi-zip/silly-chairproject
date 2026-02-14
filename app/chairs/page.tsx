@@ -28,7 +28,7 @@ export default function chair() {
 
         <main>
         <div className="sellingitems">
-          <SellingItem text="Fancy office chair" price="340" desc="An comfortable, adjustable and fancy chair to keep you sitting and working comfortably"
+          <SellingItem text="Fancy office chair" price="340" desc="An comfortable and adjustable chair to keep you sitting and working comfortably" /*Made the text smaller since it works bad on different browsers/os's, by request from Jacob*/
         img="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%2Fid%2FOIP.USiAakfD7Sa6dc9GPxKTbQHaHa%3Fpid%3DApi&f=1&ipt=7b1bdb1ffb202c6e22d7d9b4fbbd45320e4aef5a943484a135752ef446a753b6&ipo=images" additem={addToCart}/>
 
         
