@@ -12,7 +12,7 @@ export default function Support(){
         <>
         <Navbar/>
         {sended ? 
-        <><div className="animate__bounceOutDown animate__animated flex place-self-center flex-col mt-3 bg-neutral-primary-soft block md:max-w-lg pt-6 pb-6 pl-2 pr-2 border border-default rounded-base shadow-xs w-full">
+        <><div className="animate__bounceOutDown animate__animated flex flex-col mt-3 bg-neutral-primary-soft block md:max-w-lg pt-6 pb-6 pl-2 pr-2 border border-default rounded-base shadow-xs mx-auto max-w-lg w-full"> {/*Fix centering on firefox, used chatgpt to add: mx-auto max-w-lg w-full */}
             <p className="text-center mb-3 text-4xl font-semibold tracking-tight text-heading leading-8">{title}</p>
               <p className="text-xl italic">{text}</p>
               <p className="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">- {email}</p>

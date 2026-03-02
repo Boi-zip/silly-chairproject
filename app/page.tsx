@@ -57,7 +57,7 @@ export default function Home(){
 <p className="text-center text-xl mt-10">Now you know, go have a look:</p>
 {/*Also got this thing from a site, a button template but change it up a bit to center it on the screen and to have some margings(and the text) */}
 {/*https://uiverse.io/zymantas-katinas/little-puma-84 */}
-<AnimatedItem animation="animate__shakeY" className="mt-6 mb-7 flex justify-self-center ">
+<AnimatedItem animation="animate__shakeY" className="mt-6 mb-7 flex justify-center ">
 <Link href={"/chairs"}
   className="relative group border-none bg-transparent p-0 outline-none cursor-pointer font-mono font-light uppercase text-base"
 >

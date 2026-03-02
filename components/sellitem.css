@@ -38,6 +38,11 @@
   font-size: 6em;
   color: rgba(0, 0, 0, 0.1);
 }
+@-moz-document url-prefix() { /*Firefox fixes*/
+  .card::after {
+  right: 6px; /*Made the CHAIR text centered, by request from Jacob*/
+}
+}
 
 .card .imgBox {
   position: relative;
@@ -106,6 +111,12 @@
   text-decoration: none;
   font-size: 16.17994px;
   transition: 0.5s;
+}
+
+@-moz-document url-prefix() { /*Firefox fixes*/
+  .card .contentBox .desc {
+    font-size: 14.87494px;
+}
 }
 
 .card:hover .contentBox .buy {
